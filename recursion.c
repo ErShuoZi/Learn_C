@@ -57,21 +57,57 @@
 //	return ret;
 //}
 
-int Fac2(int n) {
+//int Fac2(int n) {
+//	if(n <= 1){
+//		//TODO
+//		return 1;
+//	}
+//	else {
+//		return n*Fac2(n - 1);
+//	}
+//}
+//int main() {
+//	int n = 0;
+//	int ret = 0;
+//	scanf("%d",&n);
+//	ret = Fac2(n);
+//	printf("%d\n",ret);
+//	return 0;
+//} 
 
-	if(n <= 1){
-		//TODO
-		return 1;
-	}
-	else {
-		return n*Fac2(n - 1);
-	}
+
+//求第n的数的斐波那契数
+//描述第n个斐波那契数列  fn(n) = fn(n - 1) +fn(n - 2) 
+
+//数字大了会超时 
+//int fac(n) {
+//	if(n <= 2){
+//		 return 1;
+//	}
+//	else {
+//		 return fac(n - 1) + fac(n - 2 );
+//	}
+//}
+// 优化版  采用动态规划的方式 
+int count = 0; 
+int fac(int n) {
+	 int a = 1;
+	 int b = 1;
+	 int c = 1;
+	 while(n > 2){
+	 	c = a + b;
+	 	a = b;
+	 	b = c;
+	 	n--;
+	 } 
+	 return c;
 }
 int main() {
 	int n = 0;
 	int ret = 0;
 	scanf("%d",&n);
-	ret = Fac2(n);
-	printf("%d\n",ret);
+	ret = fac(n);
+	printf("ret = %d\n",ret);
+	printf("%d\n", count);
 	return 0;
 } 
